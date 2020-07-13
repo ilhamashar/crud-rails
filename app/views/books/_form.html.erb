@@ -1,0 +1,32 @@
+<% if @book.errors.any? %>
+  <% @book.errors.full_messages.each do |msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= form_for(@book) do |f| %>
+  <%= f.label :title %> </br>
+  <% if @book.errors[:title].any? %>
+    <%= @book.errors[:title].first %>
+  <% end %>
+  <%= f.text_field :title %></br>
+
+  <%= f.label :description %> </br>
+  <% if @book.errors[:description].any? %>
+    <%= @book.errors[:description].first %>
+  <% end %>
+  <%= f.text_area :description %></br>
+
+  <%= f.label :page %> </br>
+  <% if @book.errors[:page].any? %>
+    <%= @book.errors[:page].first %>
+  <% end %>
+  <%= f.text_field :page %></br>
+
+  <%= f.label :price %> </br>
+  <%= f.text_field :price %></br>
+
+  <%= f.submit "save" %>
+<% end %>

@@ -1,0 +1,9 @@
+<% if flash[:notice].present? %>
+  <%= flash[:notice] %>
+<% end %>
+Title : <%= @book.title %></br>
+Description : <%= @book.description %></br>
+Page : <%= @book.page %></br>
+Price : <%= @book.price %></br>
+
+<%= render 'info', popular_book: @book.title %>
